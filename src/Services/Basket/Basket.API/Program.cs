@@ -22,10 +22,11 @@ builder.Services.AddMarten(opts =>
 }).UseLightweightSessions();
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
-builder.Services.AddScoped<IBasketRepository>(provider =>
+builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
+builder.Services.AddStackExchangeRedisCache(options =>
 {
-    var basketRepository = provider.GetRequiredService<BasketRepository>();
-    return new CachedBasketRepository(basketRepository, provider.GetRequiredService<IDistributedCache>());
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+    // options.InstanceName = "Basket";
 });
 
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
