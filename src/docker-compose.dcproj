@@ -5,9 +5,9 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>81d84b57-5f77-4e1a-a1fd-5617fc47641a</ProjectGuid>
-	  <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-	  <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
-      <DockerServiceName>catalog.api</DockerServiceName>
+    <DockerLaunchAction>None</DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
+    <DockerServiceName>catalog.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">
